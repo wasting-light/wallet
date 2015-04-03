@@ -1,0 +1,32 @@
+{
+  "name": "wallet",
+  "version": "0.1.0",
+  "description": "A Node.js and Polymer contacts app",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "polymer",
+    "web-components",
+    "wallet"
+  ],
+  "author": "Guilherme Rv Coelho <guilherme@cenoura.co>",
+  "license": "MIT",
+  "homepage": "https://github.com/grvcoelho/wallet",
+  "devDependencies": {
+    "browser-sync": "^2.4.0",
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.9.4",
+    "gulp-plumber": "^1.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-stylus": "^2.0.1",
+    "gulp-vulcanize": "^5.0.0",
+    "gulp-watch": "^4.2.1",
+    "jeet": "^6.1.2",
+    "jshint-stylish": "^1.0.1",
+    "kouto-swiss": "^0.11.10",
+    "rupture": "^0.6.1"
+  }
+}

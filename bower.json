@@ -1,0 +1,29 @@
+{
+  "name": "wallet",
+  "version": "0.1.0",
+  "homepage": "https://github.com/grvcoelho/wallet",
+  "authors": [
+    "Guilherme Rv Coelho <guilherme@cenoura.co>"
+  ],
+  "description": "A Node.js and Polymer contacts app",
+  "main": "app/index.html",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "wallet"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.5",
+    "core-elements": "Polymer/core-elements#~0.5.5",
+    "paper-elements": "Polymer/paper-elements#~0.5.5",
+    "font-roboto": "Polymer/font-roboto#~0.5.5"
+  }
+}
