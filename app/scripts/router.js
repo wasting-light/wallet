@@ -1,54 +1,70 @@
 (function(window, document, undefined) {
   'use strict';
 
-  /**
-   * The main template element
-   */
   var app = document.querySelector('#app');
 
-  /**
-   * Listens to when the template is finally bound
-   */
-  app.addEventListener('template-bound', function() {
-    /**
-     * The main core-animated-pages element
-     */
-    var pages = document.querySelector('#pages');
+  app.route = {};
 
-    /**
-     * The default route to be used by the router
-     */
-    var DEFAULT_ROUTE = '/contacts/all';
+  var contacts = {
+    all: function() {
+      app.route.name = 'contacts';
 
-    var all = function() {
-      app.route = 'all';
-    };
+      app.route.subroute = {
+        name: 'all'
+      };
+    },
 
-    var favorites = function() {
-      app.route = 'favorites';
-    };
+    favorites: function() {
+      app.route.name = 'contacts';
 
-    var circles = function() {
-      app.route = 'circles';
-    };
+      app.route.subroute = {
+        name: 'favorites'
+      };
+    },
 
-    /**
-     * The paths and route handlers
-     */
-    var routes = {
-      '/contacts/all': all,
-      '/contacts/favorites': favorites,
-      '/contacts/circles': circles,
-    };
+    circles: function() {
+      app.route.name = 'contacts';
 
-    /**
-     * The router
-     */
-    var router = Router(routes);
+      app.route.subroute = {
+        name: 'circles'
+      };
+    },
 
-    /**
-     * Inits the router with the default route
-     */
-    router.init(DEFAULT_ROUTE);
+    default: function() {
+      app.route.name = 'contacts';
+
+      this.setRoute('/contacts/all');
+    }
+  };
+
+  var info = function() {
+    app.route.name = 'info';
+  };
+
+  var add = function() {
+    app.route.name = 'add';
+  };
+
+  var routes = {
+    '/add': add,
+    '/info': info,
+    '/contacts/all': contacts.all,
+    '/contacts/favorites': contacts.favorites,
+    '/contacts/circles': contacts.circles,
+    '/contacts': contacts.default
+    // '/contacts?((\w|.)*)': contacts,
+  };
+
+  var router = new Router(routes);
+
+  router.init();
+
+  document.addEventListener('change-route', function(event) {
+    var detail = event.detail;
+
+    if(detail) {
+      router.setRoute(detail);
+    }
   });
+
 })(window, document);
