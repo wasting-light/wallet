@@ -16,10 +16,27 @@ Polymer('contacts-page', {
   },
 
   routeChanged: function() {
-    console.log(this.route);
+    this.setHeading();
   },
 
   closeDrawer: function() {
     this.$.drawerPanel.closeDrawer();
+  },
+
+  setHeading: function() {
+    switch(this.route.name) {
+      case 'all':
+        this.heading = 'All';
+        break;
+
+      case 'favorites':
+        this.heading = 'Favorites';
+        break;
+
+      case 'circles':
+        this.heading = 'Circles';
+        break;
+      default:
+    }
   }
 });
