@@ -67,4 +67,8 @@
     }
   });
 
+  document.addEventListener('change-route-back', function(e) {
+    history.back();
+  });
+
 })(window, document);

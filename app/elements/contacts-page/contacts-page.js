@@ -19,12 +19,6 @@ Polymer('contacts-page', {
     console.log(this.route);
   },
 
-  navigate: function(event, detail, sender) {
-    var href = sender.getAttribute('href');
-
-    this.fire('change-route', href);
-  },
-
   closeDrawer: function() {
     this.$.drawerPanel.closeDrawer();
   }
