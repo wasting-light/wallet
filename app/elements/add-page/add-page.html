@@ -1,0 +1,25 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<polymer-element name="add-page" extends="base-page">
+  <template>
+    <link rel="stylesheet" href="add-page.css">
+
+    <core-header-panel id="headerPanel" fit>
+      <core-toolbar>
+        <paper-icon-button
+          icon="arrow-back"
+          on-click="{{goBack}}">
+        </paper-icon-button>
+        <div>Add New Contact</div>
+      </core-toolbar>
+
+      <div class="content">
+        <li><a href="#/contacts">contacts</a></li>
+        <li><a href="#/info">info</a></li>
+        <li>add</li>
+      </div>
+    </core-header-panel>
+  </template>
+
+  <script src="add-page.js"></script>
+</polymer-element>

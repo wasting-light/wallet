@@ -1,0 +1,3 @@
+Polymer('add-page', {
+
+});
