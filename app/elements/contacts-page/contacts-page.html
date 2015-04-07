@@ -1,0 +1,52 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<polymer-element name="contacts-page" attributes="route">
+  <template>
+    <link rel="stylesheet" href="contacts-page.css">
+
+    <core-drawer-panel id="drawerPanel">
+      <core-header-panel id="drawer" mode="seamed" drawer>
+        <core-toolbar>Menu</core-toolbar>
+
+        <core-menu on-core-select="{{closeDrawer}}" valueattr="route" selected={{route.name}}>
+          <template repeat="{{link in drawerLinks}}">
+            <paper-item noink on-click="{{navigate}}" href="{{link.href}}" route="{{link.route}}">
+              <core-icon icon="label-outline"></core-icon>
+              <div>{{link.name}}</div>
+            </paper-item>
+          </template>
+        </core-menu>
+      </core-header-panel>
+
+      <core-header-panel mode="seamed" main>
+        <core-toolbar>
+          <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+          <div flex>My App</div>
+        </core-toolbar>
+
+        <div layout vertical center-center id="content">
+
+          <core-animated-pages selected="{{route.name}}" transitions="cross-fade" fit valueattr="route">
+            <section route="all">
+              <h1 cross-fade>This is the page: all</h1>
+            </section>
+
+            <section route="favorites">
+              <h1 cross-fade>This is the page: favorites</h1>
+            </section>
+
+            <section route="circles">
+              <h1 cross-fade>This is the page: circles</h1>
+            </section>
+          </core-animated-pages>
+
+          <a href="#/add">
+            <paper-fab icon="add"></paper-fab>
+          </a>
+        </div>
+      </core-header-panel>
+    </core-drawer-panel>
+  </template>
+
+  <script src="contacts-page.js"></script>
+</polymer-element>
