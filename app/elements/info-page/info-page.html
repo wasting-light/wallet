@@ -1,0 +1,25 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<polymer-element name="info-page" extends="base-page">
+  <template>
+    <link rel="stylesheet" href="info-page.css">
+
+    <core-header-panel id="headerPanel" fit>
+      <core-toolbar>
+        <paper-icon-button
+          icon="arrow-back"
+          on-click="{{goBack}}">
+        </paper-icon-button>
+        <div>Information about contact</div>
+      </core-toolbar>
+
+      <div class="content">
+        <li><a href="#/contacts">contacts</a></li>
+        <li>info</li>
+        <li><a href="#/add">add</li>
+      </div>
+    </core-header-panel>
+  </template>
+
+  <script src="info-page.js"></script>
+</polymer-element>

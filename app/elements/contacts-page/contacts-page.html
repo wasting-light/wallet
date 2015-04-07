@@ -40,9 +40,9 @@
             </section>
           </core-animated-pages>
 
-          <a href="#/add">
-            <paper-fab icon="add"></paper-fab>
-          </a>
+          <paper-fab icon="add" on-click="{{navigate}}" href="/add"></paper-fab>
+          <paper-fab icon="send" on-mouseover="{{navigate}}" href="/info"></paper-fab>
+
         </div>
       </core-header-panel>
     </core-drawer-panel>
