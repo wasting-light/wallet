@@ -77,7 +77,7 @@ gulp.task('stylus', function() {
 
 gulp.task('jshint', function() {
   return gulp
-    .src('app/**/*.js')
+    .src(['app/**/*.js', '!app/components/**/*.js'])
     .pipe(plumber())
     .pipe(jshint())
     .pipe(jshint.reporter(stylish));
@@ -117,7 +117,7 @@ gulp.task('vulcanize', function() {
  */
 
 gulp.task('watch', ['server', 'stylus'], function() {
-  gulp.watch('app/**/*.styl', ['stylus']);  
+  gulp.watch('app/**/*.styl', ['stylus']);
   gulp.watch(['app/**/*.{html, js}'], ['reload'])
 });
 
