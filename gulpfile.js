@@ -89,7 +89,7 @@ gulp.task('jshint', function() {
  * Watches for javascript changes and lints them
  */
 
-gulp.task('jshint-watch', function() {
+gulp.task('jshint-watch', ['jshint'], function() {
   gulp.watch('app/**/*.js', ['jshint']);
 });
 
