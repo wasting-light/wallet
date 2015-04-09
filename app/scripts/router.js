@@ -58,12 +58,13 @@
     '/contacts/favorites': contacts.favorites,
     '/contacts/circles': contacts.circles,
     '/contacts': contacts.default,
-    '/((\w|.)*)/': all
+    '/((\w|.)*)/': all,
+    '/': all
   };
 
   var router = new Router(routes);
 
-  router.init();
+  router.init('/');
 
   document.addEventListener('change-route', function(event) {
     var detail = event.detail;
