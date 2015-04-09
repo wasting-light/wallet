@@ -30,29 +30,35 @@
       };
     },
 
+    info: function() {
+      app.route.name = 'info';
+    },
+
+    add: function() {
+      app.route.name = 'add';
+    },
+
     default: function() {
       app.route.name = 'contacts';
 
       this.setRoute('/contacts/all');
-    }
+    },
   };
 
-  var info = function() {
-    app.route.name = 'info';
-  };
+  var all = function() {
+    app.route.name = 'contacts';
 
-  var add = function() {
-    app.route.name = 'add';
+    this.setRoute('/contacts/all');
   };
 
   var routes = {
-    '/add': add,
-    '/info': info,
+    '/add': contacts.add,
+    '/info': contacts.info,
     '/contacts/all': contacts.all,
     '/contacts/favorites': contacts.favorites,
     '/contacts/circles': contacts.circles,
-    '/contacts': contacts.default
-    // '/contacts?((\w|.)*)': contacts,
+    '/contacts': contacts.default,
+    '/((\w|.)*)/': all
   };
 
   var router = new Router(routes);
