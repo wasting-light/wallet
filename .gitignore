@@ -2,6 +2,7 @@
 
 *.css
 *.sh
+data
 
 ### Bower ###
 app/components
