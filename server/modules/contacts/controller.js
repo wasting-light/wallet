@@ -69,3 +69,15 @@ var remove = function(req, res, callback) {
     callback(err, data, res);
   });
 };
+
+/**
+ * Exports all the actions
+ */
+
+module.exports = {
+  create: create,
+  retrieve: retrieve,
+  findOne: findOne,
+  update: update,
+  remove: remove,
+};
