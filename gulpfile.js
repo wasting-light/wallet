@@ -26,7 +26,7 @@ var vulcanize  = require('gulp-vulcanize');
 gulp.task('server', function() {
   browser({
     server: {
-      baseDir: './app/'
+      baseDir: '.'
     },
 
     port: 3000
