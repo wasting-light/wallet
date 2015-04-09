@@ -49,6 +49,30 @@ if(env === 'development') {
 }
 
 /**
+ * Connects to the database
+ */
+
+var db = require('./config/db');
+
+/**
+ * Sets up the API
+ */
+
+var api = {};
+
+api.contacts = require('./modules/contacts/routes.js');
+
+/**
+ * Sets up the routes
+ */
+
+ app.use('/api/contacts', api.contacts);
+
+app.all('*', function(req, res) {
+  res.sendFile(publicFolder + '/index.html');
+});
+
+/**
  * Exports the app
  */
 
