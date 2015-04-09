@@ -4,7 +4,8 @@
   "description": "A Node.js and Polymer contacts app",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "nodemon server/bin/www"
   },
   "keywords": [
     "polymer",
