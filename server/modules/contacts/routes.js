@@ -37,3 +37,9 @@ router.put('/:id', function(req, res) {
 router.delete('/:id', function(req, res) {
   contact.delete(req, res, callback);
 });
+
+/**
+ * Exports the router
+ */
+
+module.exports = router;
