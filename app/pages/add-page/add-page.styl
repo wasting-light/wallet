@@ -3,3 +3,19 @@
 core-toolbar
   background primary-500
   color white-text
+
+.content
+  margin 1.5rem
+  background white
+  padding 2rem
+  +above('md')
+    margin 5rem
+  +above('lg')
+    width 50rem
+    margin 5rem auto
+
+.form__input /deep/ [focused] /deep/ .label-text
+  color accent-a200
+
+.form__input /deep/ .focused-underline
+  background-color accent-a200

@@ -10,13 +10,17 @@
           icon="arrow-back"
           on-click="{{goBack}}">
         </paper-icon-button>
-        <div>Add New Contact</div>
+        <div>Add Contact</div>
       </core-toolbar>
 
       <div class="content">
-        <li><a href="#/contacts">contacts</a></li>
-        <li><a href="#/info">info</a></li>
-        <li>add</li>
+        <div class="form" layout vertical>
+          <paper-input class="form__input" label="Name" floatingLabel value="{{newContact.name}}"></paper-input>
+          <paper-input class="form__input" label="Avatar" floatingLabel value="{{newContact.avatar}}"></paper-input>
+          <paper-input class="form__input" label="Phone" floatingLabel value="{{newContact.phone}}"></paper-input>
+          <paper-input class="form__input" label="Address" floatingLabel value="{{newContact.address}}"></paper-input>
+          <paper-input class="form__input" label="Email" floatingLabel value="{{newContact.email}}"></paper-input>
+        </div>
       </div>
     </core-header-panel>
   </template>
