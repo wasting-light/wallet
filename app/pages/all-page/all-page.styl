@@ -1,0 +1,26 @@
+@import '../../styles/base'
+
+core-toolbar
+  background primary-500
+  color white
+
+.content
+  margin 1.5rem
+  background white
+  +above('md')
+    margin 5rem
+  +above('lg')
+    width 50rem
+    margin 5rem auto
+
+.contact
+  height 5rem
+  padding 2rem
+  cursor pointer
+
+.contact__image
+  width 2.5rem
+  height 2.5rem
+  margin-right .5rem
+  border-radius 50%
+  background-color accent-a200

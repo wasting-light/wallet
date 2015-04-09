@@ -1,0 +1,36 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<polymer-element name="all-page" extends="base-page">
+  <template>
+    <link rel="stylesheet" href="all-page.css">
+
+    <core-ajax
+      auto
+      url="/data/contacts.json"
+      params='{"alt":"json", "q":"chrome"}'
+      handleAs="json"
+      on-core-response="{{handleResponse}}">
+    </core-ajax>
+
+    <core-header-panel id="panel" mode="waterfall" fit>
+      <core-toolbar>
+        <paper-icon-button icon="menu" core-drawer-toggle on-click="{{togglePanel}}"></paper-icon-button>
+        <div>All Contacts</div>
+      </core-toolbar>
+
+      <div class="content" layout horizontal center-center>
+        <core-list data={{contacts}} scrollTarget="{{$.panel.scroller}}" flex>
+          <template>
+            <div class="contact" layout horizontal center on-click="{{navigate}}" href="/info">
+              <paper-ripple fit></paper-ripple>
+              <core-image class="contact__image" preload src="{{model.avatar}}" preload sizing="cover"></core-image>
+              {{model.name}}
+            </div>
+          </template>
+        </core-list>
+      </div>
+    </core-header-panel>
+  </template>
+
+  <script src="all-page.js"></script>
+</polymer-element>

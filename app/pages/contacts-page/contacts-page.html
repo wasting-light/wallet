@@ -18,33 +18,38 @@
         </core-menu>
       </core-header-panel>
 
-      <core-header-panel main>
-        <core-toolbar>
-          <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-          <div flex>{{heading}}</div>
-        </core-toolbar>
 
-        <div layout vertical center-center id="content">
+      <core-animated-pages selected="{{route.name}}" transitions="cross-fade" fit valueattr="route" main>
+        <section route="all">
+          <all-page cross-fade></all-page>
+        </section>
 
-          <core-animated-pages selected="{{route.name}}" transitions="cross-fade" fit valueattr="route">
-            <section route="all">
-              <h1 cross-fade>This is the page: all</h1>
-            </section>
+        <section route="favorites">
+          <h1 cross-fade>This is the page: favorites</h1>
+        </section>
 
-            <section route="favorites">
-              <h1 cross-fade>This is the page: favorites</h1>
-            </section>
+        <section route="circles">
+          <h1 cross-fade>This is the page: circles</h1>
+        </section>
+      </core-animated-pages>
 
-            <section route="circles">
-              <h1 cross-fade>This is the page: circles</h1>
-            </section>
-          </core-animated-pages>
+      <!-- <div main layout vertical>
+        <core-header-panel flex>
+          <core-toolbar>
+            <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+            <div flex>{{heading}}</div>
+          </core-toolbar>
 
-          <paper-fab icon="add" on-click="{{navigate}}" href="/add"></paper-fab>
-          <paper-fab icon="send" on-mouseover="{{navigate}}" href="/info"></paper-fab>
+          <div class="content" fit>
 
-        </div>
-      </core-header-panel>
+
+
+            <!-- <paper-fab icon="add" on-click="{{navigate}}" href="/add"></paper-fab> -->
+            <!-- <paper-fab icon="send" on-mouseover="{{navigate}}" href="/info"></paper-fab> -->
+
+          <!-- </div>
+        </core-header-panel>
+      </div> -->
     </core-drawer-panel>
   </template>
 
