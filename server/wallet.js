@@ -6,7 +6,7 @@ var bodyParser     = require('body-parser');
 var errorHandler   = require('errorhandler');
 var express        = require('express');
 var http           = require('http');
-var methodOverride = require('method-overrride');
+var methodOverride = require('method-override');
 var morgan         = require('morgan');
 var path           = require('path');
 

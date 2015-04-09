@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var app   = require('../wallet');
+var debug = require('debug');
+
+var port = app.get('port');
+
+var server = app.listen(port, function() {
+  debug('Express is listening o port ' + port);
+});
