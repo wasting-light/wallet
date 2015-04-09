@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-  notebook.findOne(req, res, callback);
+  contact.findOne(req, res, callback);
 });
 
 router.post('/', function(req, res) {
