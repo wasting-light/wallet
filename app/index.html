@@ -30,11 +30,11 @@
 
     <core-animated-pages selected="{{route.name}}" valueattr="route" transitions="cross-fade" fit>
       <section route="contacts">
-        <contacts-page cross-fade route="{{route.subroute}}" test="{{route.subroute.name}}"></contacts-page>
+        <contacts-page cross-fade route="{{route.subroute}}"></contacts-page>
       </section>
 
       <section route="info">
-        <info-page cross-fade></info-page>
+        <info-page cross-fade route="{{route}}" contactId="{{route.detail.id}}"></info-page>
       </section>
 
       <section route="add">

@@ -7,7 +7,6 @@
     <core-ajax
       auto
       url="/data/contacts.json"
-      params='{"alt":"json", "q":"chrome"}'
       handleAs="json"
       on-core-response="{{handleResponse}}">
     </core-ajax>
@@ -19,10 +18,10 @@
       </core-toolbar>
 
       <div class="content" layout horizontal center-center>
+
         <core-list data={{contacts}} scrollTarget="{{$.panel.scroller}}" flex>
           <template>
-            <div class="contact" layout horizontal center on-click="{{navigate}}" href="/info">
-              <paper-ripple fit></paper-ripple>
+            <div class="contact" layout horizontal center on-click="{{navigate}}" href="/info/{{index}}">
               <core-image class="contact__image" preload src="{{model.avatar}}" preload sizing="cover"></core-image>
               {{model.name}}
             </div>
@@ -30,6 +29,12 @@
         </core-list>
       </div>
     </core-header-panel>
+
+    <paper-fab
+      icon="add"
+      on-click="{{navigate}}"
+      href="/add">
+    </paper-fab>
   </template>
 
   <script src="all-page.js"></script>

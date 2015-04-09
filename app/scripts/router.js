@@ -30,8 +30,12 @@
       };
     },
 
-    info: function() {
+    info: function(id) {
       app.route.name = 'info';
+
+      app.route.detail = {
+        id: id
+      }
     },
 
     add: function() {
@@ -53,7 +57,7 @@
 
   var routes = {
     '/add': contacts.add,
-    '/info': contacts.info,
+    '/info/:id': contacts.info,
     '/contacts/all': contacts.all,
     '/contacts/favorites': contacts.favorites,
     '/contacts/circles': contacts.circles,
