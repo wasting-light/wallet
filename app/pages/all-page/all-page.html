@@ -6,7 +6,7 @@
 
     <core-ajax
       auto
-      url="/data/contacts.json"
+      url="/api/contacts"
       handleAs="json"
       on-core-response="{{handleResponse}}">
     </core-ajax>
@@ -21,7 +21,7 @@
 
         <core-list data={{contacts}} scrollTarget="{{$.panel.scroller}}" flex>
           <template>
-            <div class="contact" layout horizontal center on-click="{{navigate}}" href="/info/{{index}}">
+            <div class="contact" layout horizontal center on-click="{{navigate}}" href="/info/{{model._id}}">
               <core-image class="contact__image" preload src="{{model.avatar}}" preload sizing="cover"></core-image>
               {{model.name}}
             </div>

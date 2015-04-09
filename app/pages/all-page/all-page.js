@@ -4,7 +4,7 @@ Polymer('all-page', {
   },
 
   handleResponse: function(event, detail, sender) {
-    this.contacts = detail.response.all;
+    this.contacts = detail.response;
   },
 
   togglePanel: function() {

@@ -6,7 +6,7 @@
 
     <core-ajax
       auto
-      url="/data/contacts.json"
+      url="/api/contacts/{{contactId}}"
       handleAs="json"
       on-core-response="{{handleResponse}}">
     </core-ajax>
@@ -24,12 +24,13 @@
       <core-toolbar
         id="toolbar"
         class="{{ {tall: !largeScreen} | tokenList}}">
+
         <paper-icon-button
           icon="arrow-back"
           on-click="{{goBack}}">
         </paper-icon-button>
 
-        <div class="bottom indent">Addy Osmani</div>
+        <div id="title" class="bottom indent">{{contact.name}}</div>
       </core-toolbar>
 
       <div class="content">
