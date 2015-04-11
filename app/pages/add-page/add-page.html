@@ -4,6 +4,15 @@
   <template>
     <link rel="stylesheet" href="add-page.css">
 
+    <core-ajax
+      id="ajax"
+      url="/api/contacts"
+      method="POST"
+      headers='{"X-Requested-With": "XMLHttpRequest"}'
+      handleAs="json"
+      params="{{newContact}}"
+      on-core-response="{{handleResponse}}"></core-ajax>
+
     <core-header-panel id="headerPanel" fit>
       <core-toolbar>
         <paper-icon-button
@@ -11,6 +20,8 @@
           on-click="{{goBack}}">
         </paper-icon-button>
         <div>Add Contact</div>
+        <span flex></span>
+        <paper-icon-button icon="check" on-click="{{createContact}}"></paper-icon-button>
       </core-toolbar>
 
       <div class="content">

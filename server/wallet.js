@@ -27,8 +27,8 @@ app.set('port', process.env.PORT || 3000);
  */
 
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride());
 
 /**
@@ -66,7 +66,7 @@ api.contacts = require('./modules/contacts/routes.js');
  * Sets up the routes
  */
 
- app.use('/api/contacts', api.contacts);
+app.use('/api/contacts', api.contacts);
 
 app.all('*', function(req, res) {
   res.sendFile(publicFolder + '/index.html');
