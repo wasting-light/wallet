@@ -34,7 +34,28 @@
       </core-toolbar>
 
       <div class="content">
-        <div style="height: 100rem"></div>
+        <div class="contact">
+          <template if="{{contact.phone}}">
+            <div class="contact__info" layout horizontal center>
+              <core-icon icon="communication:phone"></core-icon>
+              <div>{{contact.phone}}</div>
+            </div>
+          </template>
+
+          <template if="{{contact.email}}">
+            <div class="contact__info" layout horizontal center>
+              <core-icon icon="communication:email"></core-icon>
+              <div>{{contact.email}}</div>
+            </div>
+          </template>
+
+          <template if="{{contact.address}}">
+            <div class="contact__info" layout horizontal center>
+              <core-icon icon="communication:business"></core-icon>
+              <div>{{contact.address}}</div>
+            </div>
+          </template>
+        </div>
       </div>
     </core-scroll-header-panel>
   </template>

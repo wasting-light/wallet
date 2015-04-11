@@ -1,6 +1,5 @@
 @import '../../styles/base'
 
-
 core-toolbar
   background primary-500
   color white-text
@@ -9,3 +8,18 @@ core-toolbar
 
 core-scroll-header-panel::shadow #condensedHeaderBg
   background-color primary-500
+
+.content
+  margin 1.5rem
+  background white
+  // padding 2rem
+  +above('md')
+    margin 5rem
+  +above('lg')
+    width 50rem
+    margin 5rem auto
+
+.contact__info
+  padding 1.5rem 2rem
+  core-icon
+    margin-right 1rem
