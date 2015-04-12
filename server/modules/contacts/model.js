@@ -36,6 +36,11 @@ var ContactSchema = new Schema({
     default: ''
   },
 
+  isFavorite: {
+    type: Boolean,
+    default: false
+  }
+
   created_at: {
     type: Date,
     default: Date.now
