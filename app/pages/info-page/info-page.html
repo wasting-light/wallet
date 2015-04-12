@@ -11,6 +11,10 @@
       on-core-response="{{handleResponse}}">
     </core-ajax>
 
+    <core-ajax
+      id="ajaxToggleFavorite">
+    </core-ajax>
+
     <core-media-query
       query="min-width: 640px"
       queryMatches="{{largeScreen}}">
@@ -27,13 +31,36 @@
 
         <paper-icon-button
           icon="arrow-back"
-          on-click="{{goBack}}">
+          on-click="{{goBack}}"
+          flex>
         </paper-icon-button>
 
-        <div id="title" class="bottom indent">{{contact.name}}</div>
+        <div id="title" class="bottom indent" flex>{{contact.name}}</div>
+
+        <template if="{{contact.isFavorite}}">
+          <paper-icon-button icon="star" on-click="{{toggleFavorite}}"></paper-icon-button>
+        </template>
+
+        <template if="{{!contact.isFavorite}}">
+          <paper-icon-button icon="star-outline" on-click="{{toggleFavorite}}"></paper-icon-button>
+        </template>
+
+        <paper-menu-button>
+          <paper-icon-button icon="more-vert" noink></paper-icon-button>
+          <paper-dropdown class="dropdown" halign="right">
+            <core-menu class="menu">
+              <paper-item>Delete Contact</paper-item>
+            </core-menu>
+          </paper-dropdown>
+        </paper-menu-button>
       </core-toolbar>
 
       <div class="content">
+        <div class="contact-header" layout horizontal center hidden?="{{!largeScreen}}">
+          <core-image src="{{contact.avatar}}" preload sizing="cover"></core-image>
+          <div>{{contact.name}}</div>
+        </div>
+
         <div class="contact">
           <template if="{{contact.phone}}">
             <div class="contact__info" layout horizontal center>

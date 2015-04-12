@@ -6,20 +6,37 @@ core-toolbar
   &.tall
     background transparent
 
+  paper-dropdown
+    color black-text
+
 core-scroll-header-panel::shadow #condensedHeaderBg
   background-color primary-500
 
 .content
   margin 1.5rem
-  background white
-  // padding 2rem
   +above('md')
     margin 5rem
   +above('lg')
     width 50rem
     margin 5rem auto
 
+.contact-header
+  padding 1.5rem 2rem
+  margin-bottom 2rem
+  background white
+
+  core-image
+    width 2.5rem
+    height 2.5rem
+    margin-right .5rem
+    border-radius 50%
+
+
 .contact__info
   padding 1.5rem 2rem
+  background white
+  border-bottom 1px solid grey-300
+  &:last-child
+    border-bottom none
   core-icon
     margin-right 1rem

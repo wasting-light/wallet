@@ -23,7 +23,7 @@
           <template>
             <div class="contact" layout horizontal center on-click="{{navigate}}" href="/info/{{model._id}}">
               <core-image class="contact__image" preload src="{{model.avatar}}" preload sizing="cover"></core-image>
-              {{model.name}}
+              <div flex>{{model.name}}</div>
             </div>
           </template>
         </core-list>
