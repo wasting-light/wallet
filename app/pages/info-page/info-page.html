@@ -5,14 +5,24 @@
     <link rel="stylesheet" href="info-page.css">
 
     <core-ajax
+      id="ajaxGetContact"
       auto
       url="/api/contacts/{{contactId}}"
       handleAs="json"
-      on-core-response="{{handleResponse}}">
+      on-core-response="{{handleGetContact}}">
     </core-ajax>
 
     <core-ajax
-      id="ajaxToggleFavorite">
+      id="ajaxToggleFavorite"
+      method="PUT"
+      url="/api/contacts/{{contactId}}"
+      params="{{contact}}">
+    </core-ajax>
+
+    <core-ajax
+      id="ajaxDeleteContact"
+      method="DELETE"
+      url="/api/contacts/{{contactId}}">
     </core-ajax>
 
     <core-media-query
@@ -31,11 +41,12 @@
 
         <paper-icon-button
           icon="arrow-back"
-          on-click="{{goBack}}"
-          flex>
+          on-click="{{goBack}}">
         </paper-icon-button>
 
-        <div id="title" class="bottom indent" flex>{{contact.name}}</div>
+        <div id="title" class="bottom indent">{{contact.name}}</div>
+
+        <span flex></span>
 
         <template if="{{contact.isFavorite}}">
           <paper-icon-button icon="star" on-click="{{toggleFavorite}}"></paper-icon-button>
@@ -49,7 +60,7 @@
           <paper-icon-button icon="more-vert" noink></paper-icon-button>
           <paper-dropdown class="dropdown" halign="right">
             <core-menu class="menu">
-              <paper-item>Delete Contact</paper-item>
+              <paper-item on-click="{{deleteContact}}">Delete Contact</paper-item>
             </core-menu>
           </paper-dropdown>
         </paper-menu-button>
