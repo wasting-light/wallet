@@ -9,6 +9,7 @@
       auto
       url="/api/contacts/{{contactId}}"
       handleAs="json"
+      loading="{{loading}}"
       on-core-response="{{handleGetContact}}">
     </core-ajax>
 
@@ -16,19 +17,25 @@
       id="ajaxToggleFavorite"
       method="PUT"
       url="/api/contacts/{{contactId}}"
-      params="{{contact}}">
+      params="{{contact}}"
+      loading="{{loading}}">
     </core-ajax>
 
     <core-ajax
       id="ajaxDeleteContact"
       method="DELETE"
-      url="/api/contacts/{{contactId}}">
+      url="/api/contacts/{{contactId}}"
+      loading="{{loading}}">
     </core-ajax>
 
     <core-media-query
       query="min-width: 640px"
       queryMatches="{{largeScreen}}">
     </core-media-query>
+
+    <template if="{{loading}}">
+      <paper-spinner id="loadingSpinner" active></paper-spinner>
+    </template>
 
     <core-scroll-header-panel
       id="scrollHeaderPanel"

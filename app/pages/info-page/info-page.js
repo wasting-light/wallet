@@ -1,6 +1,6 @@
 Polymer('info-page', {
-  attached: function() {
-    this.getContact();
+  publish: {
+    progress: 50
   },
 
   handleGetContact: function(event, detail, sender) {
