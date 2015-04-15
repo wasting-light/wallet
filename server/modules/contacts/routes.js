@@ -35,7 +35,7 @@ router.put('/:id', function(req, res) {
 });
 
 router.delete('/:id', function(req, res) {
-  contact.delete(req, res, callback);
+  contact.remove(req, res, callback);
 });
 
 /**
