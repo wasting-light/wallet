@@ -3,7 +3,7 @@ Polymer('all-page', {
     this.contacts = [];
   },
 
-  handleResponse: function(event, detail, sender) {
+  handleGetContacts: function(event, detail, sender) {
     this.contacts = detail.response;
   },
 

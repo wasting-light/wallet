@@ -5,11 +5,17 @@
     <link rel="stylesheet" href="all-page.css">
 
     <core-ajax
+      id="ajaxGetContacts"
       auto
       url="/api/contacts"
       handleAs="json"
-      on-core-response="{{handleResponse}}">
+      loading="{{loading}}"
+      on-core-response="{{handleGetContacts}}">
     </core-ajax>
+
+    <template if="{{loading}}">
+      <paper-spinner class="loading" active></paper-spinner>
+    </template>
 
     <core-header-panel id="panel" mode="waterfall" fit>
       <core-toolbar>
