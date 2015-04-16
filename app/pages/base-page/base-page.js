@@ -5,6 +5,10 @@ Polymer('base-page', {
     this.fire('change-route', href);
   },
 
+  redirect: function(href) {
+    this.fire('change-route', href);
+  },
+
   goBack: function(event) {
     this.fire('change-route-back');
   }

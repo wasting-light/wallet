@@ -9,6 +9,10 @@ Polymer('info-page', {
     this.setScrollHeaderPanelBackground();
   },
 
+  handleDeleteContact: function() {
+    this.redirect('/contacts/all');
+  },
+
   largeScreenChanged: function() {
     if(this.contact) {
       this.setScrollHeaderPanelBackground();

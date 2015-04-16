@@ -25,7 +25,8 @@
       id="ajaxDeleteContact"
       method="DELETE"
       url="/api/contacts/{{contactId}}"
-      loading="{{loading}}">
+      loading="{{loading}}"
+      on-core-response="{{handleDeleteContact}}">
     </core-ajax>
 
     <core-media-query
