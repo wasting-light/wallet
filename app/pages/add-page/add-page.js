@@ -11,6 +11,7 @@ Polymer('add-page', {
 
   handleCreateContact: function(event, detail, sender) {
     this.redirect('/contacts/all');
+    console.log(detail.response);
   },
 
   createContact: function() {
