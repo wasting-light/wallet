@@ -5,13 +5,18 @@
     <link rel="stylesheet" href="add-page.css">
 
     <core-ajax
-      id="ajax"
+      id="ajaxCreateContact"
       url="/api/contacts"
       method="POST"
       headers='{"X-Requested-With": "XMLHttpRequest"}'
       handleAs="json"
       params="{{newContact}}"
-      on-core-response="{{handleResponse}}"></core-ajax>
+      loading="{{loading}}"
+      on-core-response="{{handleCreateContact}}"></core-ajax>
+
+    <template if="{{loading}}">
+      <paper-spinner class="loading" active></paper-spinner>
+    </template>
 
     <core-header-panel id="headerPanel" fit>
       <core-toolbar>

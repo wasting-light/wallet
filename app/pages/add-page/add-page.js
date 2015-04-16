@@ -9,11 +9,11 @@ Polymer('add-page', {
     }
   },
 
-  handleResponse: function(event, detail, sender) {
-    console.info(detail.response);
+  handleCreateContact: function(event, detail, sender) {
+    this.redirect('/contacts/all');
   },
 
   createContact: function() {
-    this.$.ajax.go();
+    this.$.ajaxCreateContact.go();
   }
 });
