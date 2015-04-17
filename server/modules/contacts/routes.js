@@ -3,14 +3,8 @@
  */
 
 var express = require('express');
-var router = express.Router();
+var router  = express.Router();
 var contact = require('./controller');
-
-/**
- * Default callback to the actions
- *
- * Sends the resulting data via json
- */
 
 var callback = function(err, data, res) {
   if(err) throw err;

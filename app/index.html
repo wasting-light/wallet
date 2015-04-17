@@ -44,6 +44,29 @@
 
   </template>
 
+  <script src="components/socket.io-client/socket.io.js"></script>
+  <script>
+    var socket = io();
+    socket.on('contact-added', function (data) {
+      console.log('asdasdasdasdsadasd');
+    });
+
+    var template = document.querySelector('#app');
+
+      template.addEventListener('template-bound', function(e) {
+
+      var button = document.querySelector('html /deep/ paper-fab');
+
+      button.addEventListener('click', function(e) {
+        socket.emit('contact-added', {message: 'You clicked the button'});
+      });
+    });
+
+    // setTimeout(function() {
+    //   socket.emit('data-client', {message: 'Data from client'});
+    // }, 3000);
+  </script>
+
   <script src="components/director/build/director.min.js"></script>
   <script src="scripts/router.js"></script>
 </body>

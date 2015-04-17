@@ -6,6 +6,7 @@ var bodyParser     = require('body-parser');
 var errorHandler   = require('errorhandler');
 var express        = require('express');
 var http           = require('http');
+var io             = require('socket.io')();
 var methodOverride = require('method-override');
 var morgan         = require('morgan');
 var path           = require('path');
@@ -32,7 +33,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride());
 
 /**
- * Sets up the public folder
+ * Set up the public folder
  */
 
 var publicFolder = path.join(__dirname, '../app');
@@ -49,13 +50,13 @@ if(env === 'development') {
 }
 
 /**
- * Connects to the database
+ * Connect to the database
  */
 
 var db = require('./config/db');
 
 /**
- * Sets up the API
+ * Set up the API
  */
 
 var api = {};
@@ -63,7 +64,7 @@ var api = {};
 api.contacts = require('./modules/contacts/routes.js');
 
 /**
- * Sets up the routes
+ * Set up the routes
  */
 
 app.use('/api/contacts', api.contacts);
@@ -73,7 +74,24 @@ app.all('*', function(req, res) {
 });
 
 /**
- * Exports the app
+ * Start the server
  */
 
+var server = http.Server(app).listen(app.get('port'), function() {
+  console.log('\nExpress listening\n');
+});
+
+/**
+ * Create the socket.io connection
+ */
+io.attach(server);
+
+/**
+ * Import the custom sockets
+ */
+var sockets = require('./lib/io');
+sockets(io);
+/**
+ * Export the application
+ */
 module.exports = app;
