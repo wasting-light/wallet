@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "test",
-    "start": "nodemon server/bin/www"
+    "start": "nodemon server/wallet"
   },
   "keywords": [
     "polymer",
