@@ -6,12 +6,14 @@ Polymer('add-page', {
       address: 'Sesame Stm 21',
       email: 'john@doe.com',
       phone: '555 3211'
-    }
+    };
+
+    this.socket = this.getSocket();
   },
 
   handleCreateContact: function(event, detail, sender) {
     this.redirect('/contacts/all');
-    console.log(detail.response);
+    this.socket.emit('contact-added');
   },
 
   createContact: function() {

@@ -1,6 +1,6 @@
 Polymer('info-page', {
-  publish: {
-    progress: 50
+  created: function() {
+    this.socket = this.getSocket();
   },
 
   handleGetContact: function(event, detail, sender) {
@@ -39,5 +39,6 @@ Polymer('info-page', {
 
   deleteContact: function() {
     this.$.ajaxDeleteContact.go();
+    this.socket.emit('contact-deleted');
   }
 });

@@ -11,5 +11,9 @@ Polymer('base-page', {
 
   goBack: function(event) {
     this.fire('change-route-back');
+  },
+
+  getSocket: function() {
+    return window.io();
   }
 });
