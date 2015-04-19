@@ -25,10 +25,22 @@
 
       <div class="content" layout horizontal center-center>
 
-        <core-list data={{contacts}} scrollTarget="{{$.panel.scroller}}" flex>
+        <core-list id="list" data={{contacts}} scrollTarget="{{$.panel.scroller}}" flex height="80" runawayFactor="400">
           <template>
-            <div class="contact" layout horizontal center on-click="{{navigate}}" href="/info/{{model._id}}">
-              <core-image class="contact__image" preload src="{{model.avatar}}" preload sizing="cover"></core-image>
+            <div class="contact"
+              layout horizontal center
+              on-click="{{navigate}}"
+              href="/info/{{model._id}}"
+              data-index="{{index}}">
+
+              <core-image class="contact__image"
+                preload
+                src="{{model.avatar}}"
+                preload
+                sizing="cover"
+                data-index="{{index}}">
+              </core-image>
+
               <div flex>{{model.name}}</div>
             </div>
           </template>

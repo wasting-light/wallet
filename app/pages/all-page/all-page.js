@@ -14,12 +14,18 @@ Polymer('all-page', {
     })
   },
 
+  domReady: function() {
+    this.$.list.updateSize();
+    this.ready = true;
+  },
+
   getContacts: function() {
     this.$.ajaxGetContacts.go();
   },
 
   handleGetContacts: function(event, detail, sender) {
     this.contacts = detail.response;
+    this.$.list.updateSize();
   },
 
   togglePanel: function() {
