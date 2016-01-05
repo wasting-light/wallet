@@ -1,7 +1,3 @@
-/**
- * Module Dependencies
- */
-
 var gulp       = require('gulp');
 
 var browser    = require('browser-sync');
@@ -17,12 +13,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var stylus     = require('gulp-stylus');
 var vulcanize  = require('gulp-vulcanize');
 
-/**
- * Server task
- *
- * Creates a server and opens the default browser
- */
-
 gulp.task('server', function() {
   browser({
     server: {
@@ -33,21 +23,9 @@ gulp.task('server', function() {
   });
 });
 
-/**
- * Reload task
- *
- * Reloads the browser
- */
-
 gulp.task('reload', function() {
   reload();
 });
-
-/**
- * Stylus task
- *
- * Convert stylus files into css
- */
 
 gulp.task('stylus', function() {
   var files = [
@@ -69,12 +47,6 @@ gulp.task('stylus', function() {
     .pipe(gulp.dest('app'));
 });
 
-/**
- * Jshint task
- *
- * Lints and shows hints on the javascript code
- */
-
 gulp.task('jshint', function() {
   return gulp
     .src(['app/**/*.js', '!app/components/**/*.js'])
@@ -83,21 +55,9 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter(stylish));
 });
 
-/**
- * Jshint watch task
- *
- * Watches for javascript changes and lints them
- */
-
 gulp.task('jshint-watch', ['jshint'], function() {
   gulp.watch('app/**/*.js', ['jshint']);
 });
-
-/**
- * Vulcanize task
- *
- * Concatenates a set of webcomponents into one file
- */
 
 gulp.task('vulcanize', function() {
   return gulp
@@ -110,19 +70,9 @@ gulp.task('vulcanize', function() {
     .pipe(gulp.dest('dist'));
 });
 
-/**
- * Watch task
- *
- * Watches for file changes and perform actions
- */
-
 gulp.task('watch', ['server', 'stylus'], function() {
   gulp.watch('app/**/*.styl', ['stylus']);
   gulp.watch(['app/**/*.{html, js}'], ['reload'])
 });
-
-/**
- * Default task
- */
 
 gulp.task('default', ['watch']);
